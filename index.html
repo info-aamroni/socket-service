@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="hello"></h1>
+    <h1 id="total"></h1>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+    <script>
+        const socket = io()
+        socket.on('greeting', (data) => {
+            document.getElementById('hello').innerText = data.hello
+        })
+
+        socket.on('broadcast', (data) => {
+            document.getElementById('total').innerText = data.count
+        })
+    </script>
+</body>
+</html>
+<!-- 'http://localhost:4000/socket-io',  -->
